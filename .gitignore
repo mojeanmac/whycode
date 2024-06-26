@@ -2,3 +2,5 @@ _build/
 _opam/
 .merlin
 *.bak
+node_modules
+.vscode/settings.json
