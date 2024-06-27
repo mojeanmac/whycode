@@ -315,7 +315,6 @@ function buildCommands(config: Config): [string, (...args: any[]) => any][] {
 
 async function startServer(config: Config, context: ExtensionContext): Promise<LanguageClient> {
     const serverPath = config.serverPath();
-    console.log(serverPath);
     const env: Env = config.env(serverPath);
     const serverArgs = config.serverArgs();
 
