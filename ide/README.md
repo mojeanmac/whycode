@@ -10,7 +10,7 @@ This repository contains an experiment in using VsCode as a front-end for the [W
 
 - Setup the server and client like shown above
 - Go to your VSCode settings
-- In `Whycode: Extra Args` add `-L/path/to/creusot/prelude/`
+- In `Whycode: Extra Args` add `-L /path/to/creusot/prelude/`
 
 # FAQ
 
