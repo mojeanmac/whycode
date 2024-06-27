@@ -4,7 +4,7 @@ This repository contains an experiment in using VsCode as a front-end for the [W
 
 # Using the VSCode Extension
 
-- Launch VSCode and run the command `Start Why3`
+- Launch VSCode and run the command `Why3: Start Proof`
 
 # Proving Rust code with Creusot
 

@@ -105,16 +105,16 @@ class Config {
       return serverPath;
   }
 
-  public env(): Env {
+  public env(serverPath: string): Env {
       const env: Env = {};
 
       const libDir: string | undefined = vscode.workspace.getConfiguration("whycode").get("libPath");
-      if ((libDir == undefined || libDir == "") && !process.env.DEBUG_SERVER_PATH) {
+      if ((libDir == undefined || libDir == "") && !serverPath) {
           env.WHY3LIB = Uri.joinPath(this.extensionUri, "why-lib").fsPath;
       }
 
       const dataDir: string | undefined = vscode.workspace.getConfiguration("whycode").get("dataPath");
-      if ((dataDir == undefined || dataDir == "") && !process.env.DEBUG_SERVER_PATH) {
+      if ((dataDir == undefined || dataDir == "") && !serverPath) {
           env.WHY3DATA = Uri.joinPath(this.extensionUri, "why-data").fsPath;
       }
 
@@ -315,7 +315,8 @@ function buildCommands(config: Config): [string, (...args: any[]) => any][] {
 
 async function startServer(config: Config, context: ExtensionContext): Promise<LanguageClient> {
     const serverPath = config.serverPath();
-    const env: Env = config.env();
+    console.log(serverPath);
+    const env: Env = config.env(serverPath);
     const serverArgs = config.serverArgs();
 
     env.OCAMLRUNPARAM = "b";
